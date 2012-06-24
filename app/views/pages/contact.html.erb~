@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby on Rails Tutorial Sample App | <%= @title %></title>
+  </head>
+  <body>
+    <h1>Contact</h1>
+    <p>
+      Contact me about the sample app at the
+      <a href="http://vk.com"> at priv messages</a>.
+    </p>
+  </body>
+</html>
+
