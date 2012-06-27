@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UsersController < ApplicationController
 
   def show
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @title = "Зарегистрироваться"
+    @title = "Sign up"
    end
 
 
@@ -18,7 +20,7 @@ def create
       flash[:success] = "Welcome!"
       redirect_to @user
     else
-      @title = "Зарегистрироваться"
+      @title = "Sign up"
       render 'new'
     end
   end
