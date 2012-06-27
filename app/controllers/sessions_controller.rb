@@ -1,6 +1,6 @@
-# encoding: utf-8
-class SessionsController < ApplicationController
 
+class SessionsController < ApplicationController
+# encoding: utf-8
   def new
     @title = "Sign in"
   end
