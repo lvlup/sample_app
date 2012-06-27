@@ -1,12 +1,21 @@
 <header>
-  <%= image_tag("logo.png", :alt => "Sample App", :class => "round") %>
+  <%= src="/images/logo.png", root_path %>
   
   <nav class="round">
     <ul>
       <li><%= link_to "Домашняя страница", root_path %></li>
+ <% if signed_in? %>
+      <li><%= link_to "Профиль", current_user %></li>
+      <% end %>
       <li><%= link_to "Help", help_path %></li>
-      <li><%= link_to "Войти", '#' %></li>
+      <% if signed_in? %>
+      <li><%= link_to "Выйти", signout_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to "Войти", signin_path %></li>
+      <% end %>
+     
     </ul>
   </nav>
 </header>
+
 
