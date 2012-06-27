@@ -18,7 +18,7 @@ def create
       flash[:success] = "Добро пожаловать!"
       redirect_to @user
     else
-      @title = "Sign up"
+      @title = "Зарегистрироваться"
       render 'new'
     end
   end
