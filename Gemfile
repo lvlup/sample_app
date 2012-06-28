@@ -2,11 +2,13 @@ source 'http://rubygems.org'
 
 gem 'rails'
 gem 'gravatar_image_tag'
-
+gem 'will_paginate', '>=3.0.pre2'
+gem 'json'
 group :development do
   gem 'sqlite3'
   gem 'annotate'
   gem 'rspec-rails', '2.6.1'
+  gem 'faker', '>=0.3.1'
 end
 
 group :production do

@@ -2,14 +2,14 @@
 class SessionsController < ApplicationController
 
   def new
-    @title = "Sign in"
+    @title = "Войти"
   end
 
   def create
     user = User.authenticate(params[:session][:email],
                              params[:session][:password])
     if user.nil?
-      flash.now[:error] = "Invalid email/пароль combo."
+      flash.now[:error] = "Неправильная email/пароль комбинация."
       @title = "Войти"
       render 'new'
     else
