@@ -1,10 +1,25 @@
-<h1>Sample App</h1>
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="post">что нового?</h1>
+        <%= render 'shared/post_form' %>
+        <%= render 'shared/feed' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+<h1>Блог</h1>
 <p>
-  This is the home page for the
+  Это домашняя страница
       <a href="http://vk.com/">me</a>
-      sample application.
+      
 </p>
 
 <%= link_to "Регистрация!", signup_path, :class => "signup_button round" %>
+<% end %>
 
 

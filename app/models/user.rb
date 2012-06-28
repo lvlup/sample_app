@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
+  
+  has_many :posts, :dependent => :destroy
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -28,7 +30,10 @@ before_save :encrypt_password
     return user if user.has_password?(submitted_password)
   end
 
-
+  def feed
+    
+    Post.where("user_id = ?", id)
+  end
  
 
   def self.authenticate_with_salt(id, cookie_salt)
