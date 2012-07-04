@@ -1,0 +1,43 @@
+# encoding: utf-8
+<p>
+  <b>Автор:</b>
+  <%= link_to @post.user.name,user_path(User.find(@post.user_id)) %>
+</p>
+
+
+<p>
+  <b>Заголовок:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Текст:</b><br />
+  <%= @post.content %>
+</p>
+
+<p>
+  <b>Дата создания:</b>
+  <%= @post.created_at %>
+</p>
+
+<h1>Комментарии:</h1>
+
+  <% @post.comments.each do |comment| %>
+    <p>
+       <b>Commenter:</b>
+         <%= user_name(comment.user) %>
+    </p>
+   <p>
+    <b>Comment:</b>
+      <%= comment.body %>
+    </p>
+  <% end %>
+
+
+
+
+<h1>Оставить комментарий:</h1>
+ <%= render 'shared/comment_form' %>
+
+
+<%= link_to 'Назад к постам', posts_path %>

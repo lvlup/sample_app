@@ -5,19 +5,25 @@
   </td>
   <td class="post">
     <span class="user">
-      <%= link_to feed_item.user.name, feed_item.user %>
+      <%= link_to feed_item.user.name, feed_item.user %> <br />
     </span>
    <span class="title">
- 
+   <b>Заголовок:</b>
     <%= feed_item.title %>
+    <br />
 </span> 
 
-    <span class="content"><%= feed_item.content %></span>
+    <span class="content">
+    <b>Текст:</b>
+<%= feed_item.content %> <br /> </span> 
 
     <span class="timestamp">
-      Опубликовал <%= time_ago_in_words(feed_item.created_at) %> назад.
+     Опубликовал <%= time_ago_in_words(feed_item.created_at) %> назад.
     </span>
   </td>
+
+ 
+ 
   <% if current_user?(feed_item.user) %>
   <td>
     <%= link_to "удалить", feed_item, :method => :delete,

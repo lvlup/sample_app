@@ -15,5 +15,11 @@ class PagesController < ApplicationController
   def about
    @title = "About"
   end
+  
+  def posts
+   @title = "Посты"
+  end
+  
+ 
 
 end

@@ -3,6 +3,20 @@ class PostsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
 
+     
+   
+   
+   def index
+    @title = "Все посты"
+    @posts = Post.paginate(:page => params[:page],:per_page => 5)
+    @posts = Post.all
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
+
   def create
     @post  = current_user.posts.build(params[:post])
     if @post.save

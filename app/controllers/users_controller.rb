@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(:page => params[:page],:per_page => 5)
     @title = @user.name
+
+    @comment = Comment.new
+
   end  
 
  def destroy

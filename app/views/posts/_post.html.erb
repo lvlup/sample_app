@@ -1,18 +1,32 @@
 # encoding: utf-8
 <tr>
   <td class="post">
-    <span class="title"><%= post.title %></span>
-    <span class="content"><%= post.content %></span>
+    <span class="title">
+     <b>Заголовок:</b>
+   <%= post.title %>
+    <br />
+</span>
+    <span class="content">
+     <b>Текст:</b>
+<%= post.content %>
+    <br />
+</span>
     <span class="timestamp">
       Опубликовал <%= time_ago_in_words(post.created_at) %> назад.
     </span>
   </td>
+
+ <td>
+    <%= link_to "подробнее", post %>
+  
 <% if current_user?(post.user) %>
-  <td>
+  
     <%= link_to "удалить", post, :method => :delete,
                                      :confirm => "вы уверены?",
                                      :title => post.content %>
   </td>
+ 
   <% end %>
+ 
 </tr>
 
