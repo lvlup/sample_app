@@ -1,0 +1,8 @@
+module TagsHelper
+  
+   def ta_name(tag)
+    return "None" if tag.nil? 
+    else return post.tag_names
+ end
+
+end

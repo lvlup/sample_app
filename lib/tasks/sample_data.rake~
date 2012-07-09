@@ -34,4 +34,12 @@ def make_posts
   end
 end
 
+def make_tags
+  50.times do
+    Post.all(:limit => 6).each do |post|
+      post.tags.create!(:name => Faker::Lorem.sentence(5))
+    end
+  end
+end
+
 

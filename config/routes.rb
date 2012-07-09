@@ -1,6 +1,8 @@
 SampleApp::Application.routes.draw do
   resources :users
+  resources :tags
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :post_tag_relations
   resources :posts do
    resources :comments
   end

@@ -20,15 +20,21 @@
   <%= @post.created_at %>
 </p>
 
+<p>
+  <b>Tags:</b>
+  <%=@post.tag_name %>
+
+</p>
+
 <h1>Комментарии:</h1>
 
   <% @post.comments.each do |comment| %>
     <p>
-       <b>Commenter:</b>
+       <b>Пользователь:</b>
          <%= user_name(comment.user) %>
     </p>
    <p>
-    <b>Comment:</b>
+    <b>Комментарий:</b>
       <%= comment.body %>
     </p>
   <% end %>

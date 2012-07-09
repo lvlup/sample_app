@@ -1,16 +1,41 @@
 # encoding: utf-8
 class Post < ActiveRecord::Base
-  attr_accessible :content, :title
+  attr_accessible :content, :title, :tag_names
+  attr_writer :tag_names
+  after_save :assign_tags
 
   belongs_to :user
-  has_many :comments
-  
+  has_many :comments, dependent: :destroy
+  has_many :post_tag_relation, dependent: :destroy
+  has_many :tags, :through => :post_tag_relation
 
   validates :user_id, :presence => true
   validates :title, :presence => true,:length => { :minimum => 5 }
   validates :content, :presence => true,:length => { :minimum => 5 }
+
+  def tag_names
+     
+   ( @tag_names | tags.to_a.map(&:name))
+ 
+  end
+  
+ def tag_name
+    
+   (@tag_names.to_a + tags.to_a.map(&:name)) 
+
+ end
+
+
+
   default_scope :order => 'posts.created_at DESC'
+   private
   
-  
-  
+  def assign_tags
+   if @tag_names
+        self.tags=@tag_names.split(/\s+/).map do |name|
+          Tag.find_or_create_by_name(name)  
+    end
+  end
+ end
+ 
 end
