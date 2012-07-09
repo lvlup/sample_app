@@ -14,13 +14,16 @@
 <tr>
 
 <% tag.posts.each do |post| %>
-     <% @a=post.tag_name %>
- <td>
+     <td> <%= post.tag_names %> 
+           <%= link_to "подробнее", tag_path(tag.id) %>
+</td>
+
+ 
+<% end %>
+   
+  <td>
     <%= link_to "подробнее", tag_path(tag.id) %>
   </td>
-<% end %>
-   <%= @a %>
-  
  
 </tr>
 <% end %>

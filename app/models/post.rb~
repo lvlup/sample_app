@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
 
   def tag_names
      
-   ( @tag_names | tags.to_a.map(&:name))
+    @tag_names || tags.to_a.map(&:name).join(', ')
  
   end
   

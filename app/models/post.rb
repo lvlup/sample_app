@@ -2,13 +2,14 @@
 class Post < ActiveRecord::Base
   attr_accessible :content, :title, :tag_names
   attr_writer :tag_names
-  after_save :assign_tags
+  before_validation :assign_tags
 
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :post_tag_relation, dependent: :destroy
   has_many :tags, :through => :post_tag_relation
-
+  
+  validates :tags, :presence => true
   validates :user_id, :presence => true
   validates :title, :presence => true,:length => { :minimum => 5 }
   validates :content, :presence => true,:length => { :minimum => 5 }
