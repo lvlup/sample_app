@@ -26,14 +26,17 @@ def signed_in?
     user == current_user
   end
 
+
+  def authenticate
+    deny_access unless signed_in?
+  end
+
   def deny_access
     store_location
     redirect_to signin_path, :notice => "Пожалуйста зарегистрируйтесь, чтобы получить доступ к этой странице."
   end
 
-  def deny_access
-    redirect_to signin_path, :notice => "Пожалуйста зарегистрируйтесь, чтобы получить доступ к этой странице."
-  end
+  
   
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)

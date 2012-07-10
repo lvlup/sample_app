@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
    @comment = Comment.new(params[:comment])
 
    @comment.post = @post
-   
+   @comment.user=nil
    
    end
     

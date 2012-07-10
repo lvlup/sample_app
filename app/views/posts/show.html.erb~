@@ -12,7 +12,7 @@
 
 <p>
   <b>Текст:</b><br />
-  <%= @post.content %>
+  <%= post.content %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <b>Tags:</b>
-  <%=@post.tag_name %>
+  <%=@post.tag_names %>
 
 </p>
 

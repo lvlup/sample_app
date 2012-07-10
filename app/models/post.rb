@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   before_validation :assign_tags
 
   belongs_to :user
+
   has_many :comments, dependent: :destroy
   has_many :post_tag_relation, dependent: :destroy
   has_many :tags, :through => :post_tag_relation
@@ -14,29 +15,24 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true,:length => { :minimum => 5 }
   validates :content, :presence => true,:length => { :minimum => 5 }
 
-  def tag_names
-     
+  default_scope :order => 'posts.created_at DESC'
+
+  def tag_names 
     @tag_names || tags.to_a.map(&:name).join(', ')
- 
   end
   
  def tag_name
-    
    (@tag_names.to_a + tags.to_a.map(&:name)) 
-
  end
 
-
-
-  default_scope :order => 'posts.created_at DESC'
-   private
+ private
   
   def assign_tags
    if @tag_names
         self.tags=@tag_names.split(/\s+/).map do |name|
           Tag.find_or_create_by_name(name)  
-    end
+        end
+   end
   end
- end
  
 end

@@ -1,9 +1,10 @@
 # encoding: utf-8
 module UsersHelper
-  def user_name(user)
+  
+ def user_name(user)
     return "Аноним" if user.nil? 
     else return user.name
-    end
+ end
    
 
   def gravatar_for(user, options = { :size => 50 })

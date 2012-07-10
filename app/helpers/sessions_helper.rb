@@ -13,8 +13,9 @@ module SessionsHelper
   def current_user
     @current_user ||= user_from_remember_token
   end
-def signed_in?
-    !current_user.nil?
+
+  def signed_in?
+   !current_user.nil?
   end
 
   def sign_out
@@ -36,8 +37,6 @@ def signed_in?
     redirect_to signin_path, :notice => "Пожалуйста зарегистрируйтесь, чтобы получить доступ к этой странице."
   end
 
-  
-  
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     clear_return_to

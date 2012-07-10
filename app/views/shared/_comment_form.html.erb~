@@ -1,5 +1,5 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
-   <%= f.error_messages %>
+
 
    <%= render 'shared/error_messages', :object => f.object %>
      <div class="field">

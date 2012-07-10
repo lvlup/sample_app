@@ -2,7 +2,7 @@
   <table class="front" summary="For signed-in users">
     <tr>
       <td class="main">
-        <h1 class="post">что нового?</h1>
+        <h1 class="post">Что нового?</h1>
         <%= render 'shared/post_form' %>
         <%= render 'shared/feed' %>
       </td>

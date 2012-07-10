@@ -4,22 +4,22 @@
     <%= link_to gravatar_for(feed_item.user), feed_item.user %>
   </td>
   <td class="post">
-    <span class="user">
+     <span class="user">
       <%= link_to feed_item.user.name, feed_item.user %> <br />
     </span>
-   <span class="title">
+ <span class="title">
    <b>Заголовок:</b>
     <%= feed_item.title %>
     <br />
-</span> 
+ </span> 
 
-    <span class="content">
+ <span class="content">
     <b>Текст:</b>
-<%= feed_item.content %> <br /> </span> 
-
-    <span class="timestamp">
+   <%= feed_item.content %> <br />
+ </span> 
+ <span class="timestamp">
      Опубликовал <%= time_ago_in_words(feed_item.created_at) %> назад.
-    </span>
+ </span>
   </td>
 
  

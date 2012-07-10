@@ -10,28 +10,26 @@
 
 
 </tr>
-<% @posts.each do |post| %>
+  <% @posts.each do |post| %>
 <tr>
 
-<td><%= post.title %></td>
-<td><%= post.content %></td>
-  <td>
-    <%= link_to "подробнее", post %>
-  </td>
-<% if current_user?(post.user) %>
-  <td>
+   <td><%= post.title %></td>
+   <td><%= post.content %></td>
+   <td>
+     <%= link_to "подробнее", post %>
+   </td>
+ <% if current_user?(post.user) %>
+   <td>
     <%= link_to "удалить", post, :method => :delete,
                                      :confirm => "вы уверены?",
                                      :title => post.content %>
   </td>
   <% end %>
-
-</tr>
+ </tr>
 <% end %>
 </table>
 </ul>
 <br />
-
 
 <%= link_to 'Домашняя страница', root_path %>
 

@@ -2,10 +2,9 @@
 class TagsController < ApplicationController
 
 
-     def show
-       @posts = Tag.find(params[:id]).posts
-       
-     end
+ def show
+   @posts = Tag.find(params[:id]).posts
+ end
 
 
  def index

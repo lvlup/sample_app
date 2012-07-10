@@ -10,22 +10,22 @@
 
 
 </tr>
-<% @tags.each do |tag| %>
+  <% @tags.each do |tag| %>
 <tr>
 
-<% tag.posts.each do |post| %>
+  <% tag.posts.each do |post| %>
      <td> <%= post.tag_names %> 
            <%= link_to "подробнее", tag_path(tag.id) %>
-</td>
+     </td>
 
  
-<% end %>
+ <% end %>
    
   <td>
     <%= link_to "подробнее", tag_path(tag.id) %>
   </td>
  
-</tr>
+ </tr>
 <% end %>
 </table>
 </ul>

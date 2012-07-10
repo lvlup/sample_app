@@ -15,6 +15,9 @@
 
 <td><%= post.title %></td>
 <td><%= post.content %></td>
+  <td>
+    <%= link_to "подробнее", post %>
+  </td>
 <% if current_user?(post.user) %>
   <td>
     <%= link_to "удалить", post, :method => :delete,

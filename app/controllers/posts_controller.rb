@@ -1,24 +1,14 @@
 # encoding: utf-8
 class PostsController < ApplicationController
   
-
-  
-  before_filter :authenticate, :only => [:create, :destroy]
-  before_filter :authorized_user, :only => :destroy
+ before_filter :authenticate, :only => [:create, :destroy]
+ before_filter :authorized_user, :only => :destroy
  
-     
-
-
-   
-   
- 
-
-
-   def index
-    @title = "Все посты"
-    @posts = Post.paginate(:page => params[:page],:per_page => 5)
-    @posts = Post.all
-  end
+ def index
+   @title = "Все посты"
+   @posts = Post.paginate(:page => params[:page],:per_page => 5)
+   @posts = Post.all
+ end
 
   def show
     @post = Post.find(params[:id])
@@ -26,13 +16,13 @@ class PostsController < ApplicationController
 
 
   def create
-    @post  = current_user.posts.build(params[:post])
-    if @post.save
+   @post  = current_user.posts.build(params[:post])
+   if @post.save
       flash[:success] = "Пост создан!"
       redirect_to root_path
-    else
+   else
       render 'pages/home'
-    end
+   end
   end
 
   def destroy
@@ -44,11 +34,9 @@ class PostsController < ApplicationController
  private
  
  def authorized_user
-      @post = current_user.posts.find_by_id(params[:id])
-      redirect_to root_path if @post.nil?
-    end 
-
-
+   @post = current_user.posts.find_by_id(params[:id])
+   redirect_to root_path if @post.nil?
+ end 
 
 
 end
