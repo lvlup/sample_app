@@ -1,9 +1,0 @@
-<p>
-   <b>Автор:</b>
-   <%= comment.commenter %>
-</p>
-<p>
-    <b>Комментарий:</b>
-    <%= comment.body %>
-</p>
-
